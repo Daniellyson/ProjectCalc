@@ -1,0 +1,18 @@
+﻿┌─── * Sharmir
+│ Obtenir nbPoints
+│ 
+│ i = 0
+│╔══ do while (i < nbPoints)
+│║ Obtenir x
+│║ Obtenir y
+│║ coordonneesPoints[i].pointX = x
+│║ coordonneesPoints[i].pointY = y
+│║ i++
+│╙──
+│ iX = 0
+│ o────────────────────o ↓ nbPoints, coordonneesPoints, iX
+│ │ Fonction Polynomes │
+│ o────────────────────o ↓ y
+│ clefSecrete = y
+│ Sortir clefSecrete
+└──────────
