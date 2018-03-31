@@ -5,8 +5,8 @@
 │╔══ do while (i < nbPoints)
 │║ Obtenir x
 │║ Obtenir y
-│║ coordonneesPoints[i].pointX = x
-│║ coordonneesPoints[i].pointY = y
+│║ coordonneesPoints[i].X = x
+│║ coordonneesPoints[i].Y = y
 │║ i++
 │╙──
 │ iX = 0
