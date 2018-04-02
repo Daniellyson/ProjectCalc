@@ -2,8 +2,8 @@
 │ i = 0
 │╔══ do while (i < 5)
 │║ Obtenir x, y
-│║ coordonneesPuissanceOxygene[i].pointX = x
-│║ coordonneesPuissanceOxygene[i].pointY = y
+│║ coordonneesPuissanceOxygene[i].X = x
+│║ coordonneesPuissanceOxygene[i].Y = y
 │║ i++
 │╙──
 │ o────────────────────o ↓ coordonneesPuissanceOxygene
@@ -15,8 +15,8 @@
 ┌─── * Gestion Max Points
 │ nbPoints = 5
 │ yMax = 0
-│ iX = coordonneesPuissanceOxygene[0].pointX
-│ iFin = coordonneesPuissanceOxygene[4].pointX
+│ iX = coordonneesPuissanceOxygene[0].X
+│ iFin = coordonneesPuissanceOxygene[4].Y
 │╔══ do while (iX ≤ iFin)
 │║ o────────────────────o ↓ nbPoints, coordonneesPuissanceOxygene, iX
 │║ │ Fonction Polynomes │
