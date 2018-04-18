@@ -13,9 +13,7 @@
 │║║└──
 │║║ j++
 │║╙──
-│║┌── if (denominateur = 0)
-│║│ y += 0
-│║├── else
+│║┌── if (denominateur != 0)
 │║│ y += (numerateur / denominateur) * coordonnees[i].pointY
 │║└──
 │║ 
