@@ -14,9 +14,11 @@
  
 ┌─── * Gestion Max Points
 │ nbPoints = 5
+│
 │ yMax = 0
 │ iX = coordonneesPuissanceOxygene[0].X
 │ iFin = coordonneesPuissanceOxygene[4].Y
+│
 │╔══ do while (iX ≤ iFin)
 │║ o────────────────────o ↓ nbPoints, coordonneesPuissanceOxygene, iX
 │║ │ Fonction Polynomes │
