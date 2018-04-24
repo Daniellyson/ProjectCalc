@@ -56,7 +56,7 @@ do while (nbDecimalesNécessaire > 0)
 nombre *= 10
 nbDecimalesNécessaire--
 enddo
-erreurRelativeMax *= (1 / nombre)
+Sortir erreurRelativeMax *= (1 / nombre)
 ------
 ---*CalculNombreDécimalesNécessairePourChaqueTerme
 p = (( nbDécimales + (argMod - 0.5) * 0.5 + (argMod/5) + 0.31 ) + 1)ENT
