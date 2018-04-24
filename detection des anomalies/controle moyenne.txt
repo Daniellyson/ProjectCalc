@@ -1,0 +1,10 @@
+┌─── * controleMoyenne
+│┌── if (LWL < moyenne AND moyenne < UWL)
+││ message = "moyenne dans les limites"
+│├── else if (moyenne < LCL OR moyenne > UCL)
+││ message = "alerte warning"
+│├── else
+││ message = "alerte contrôle"
+│└──
+│ sortir message
+└──────────

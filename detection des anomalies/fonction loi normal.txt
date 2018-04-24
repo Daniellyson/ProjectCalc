@@ -1,0 +1,10 @@
+┌─── * fonctionLoiNormal
+│ o──────o ↓ 2*3.14
+│ │ sqrt │
+│ o──────o ↓ racineQuotient
+│ xcarre = x * x
+│ o─────o ↓ -xCarre/2
+│ │ exp │
+│ o─────o ↓ exponentiel
+│ sortir (1/racineQuotient) * exponentiel
+└──────────

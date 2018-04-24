@@ -1,0 +1,9 @@
+┌─── * detection des erreurs (utilisation du modele)
+│ o─────────────────o
+│ │ obtentionModele │
+│ o─────────────────o ↓ UCL, LCL, UWL, LWL, moyenneATest
+│ o─────────────────o ↓ UCL, LCL, UWL, LWL, moyenneATest
+│ │ controleMoyenne │
+│ o─────────────────o ↓ message
+│ sortir message
+└──────────

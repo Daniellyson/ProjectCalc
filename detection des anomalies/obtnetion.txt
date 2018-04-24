@@ -1,0 +1,25 @@
+┌─── * obtention
+│ o──────────────────────o
+│ │ obtentionUtilisateur │
+│ o──────────────────────o ↓ n, alphaControl, alphaWarning
+│ i = 0
+│ sommeX = 0
+│ sommeXCarre = 0
+│ o────────────────o
+│ │ lectureFichier │
+│ o────────────────o ↓ valeur
+│╔══ do while (valeur ≠ null )
+│║ sommeX += valeur
+│║ sommeXCarre += valeur*valeur
+│║ nbValeurs++
+│║ o────────────────o
+│║ │ lectureFichier │
+│║ o────────────────o ↓ valeur
+│╙──
+│ moyenne = sommeX/nbValeurs
+│ variance = (sommeXCarre/nbValeurs) - moyenne*moyenne
+│ o──────o ↓ variance
+│ │ sqrt │
+│ o──────o ↓ ecartType
+│ sortir alphaControl, alphaWarning, n, moyenne, ecartType
+└──────────
