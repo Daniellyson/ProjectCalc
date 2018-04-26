@@ -1,7 +1,4 @@
-﻿#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+﻿#include "Header.h"
 
 int calculNombreIteration(int nbDecimales, int exponsant) {
 	int nbIterations = 1;
