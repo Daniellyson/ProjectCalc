@@ -19,5 +19,5 @@ double calculSimpson(int valeurCalculSimpson, int zero, double a, double (*fonct
 double valeurAbsolue(double alphaCalcule);
 void detectionDesErreurs(void);
 double obtentionModele(double * UCL, double * LCL, double * UWL, double * LWL);
-char contrileMoyenne(double UCL, double LCL, double UWL, double LWL, double moyenneATest);
+char controleMoyenne(double UCL, double LCL, double UWL, double LWL, double moyenneATest);
 double fonctionLoiNormal(void);
