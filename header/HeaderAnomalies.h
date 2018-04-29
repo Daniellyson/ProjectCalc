@@ -2,7 +2,6 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define CALCULSIMPSON 75
 
@@ -14,8 +13,9 @@ FILE * lectureFichier();
 double sqrt(double valeur);
 double ecartTYpe(double variance);
 double rechercheA(double alpha);
-double calculSimpson(int valeurCalculSimpson, int zero, double a, double f);
+double calculSimpson(int valeurCalculSimpson, int zero, double a, double (*fonctionLoiNormal)(void));
 double valeurAbsolue(double alphaCalcule);
 void detectionDesErreurs(void);
 double obtentionModele(double * UCL, double * LCL, double * UWL, double * LWL);
 char contrileMoyenne(double UCL, double LCL, double UWL, double LWL, double moyenneATest);
+double fonctionLoiNormal(void);
