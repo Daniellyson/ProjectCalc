@@ -7,7 +7,7 @@
 #define FIMODELE "fiModele.csv"
 #define FITEST "fiTest.csv"
 
-typedef double fonctionLoiNormal(double);
+typedef double (*fonctionLoiNormal)(double);
 
 void detectionDesAnomalies(void);
 int obtention(int * alphaControl, int * alphaWarning, double * moyenne, double * ecartType);
