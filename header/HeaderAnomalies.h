@@ -11,7 +11,7 @@ int obtentionUtilisateur(int alphaControl, int alphaWarning);
 double calculIntervalle(double * lowerLimit, double moyenne, double ecartType, int alpha, int n);
 FILE * lectureFichier();
 double sqrt(double valeur);
-double ecartTYpe(double variance);
+double ecartType(double variance);
 double rechercheA(double alpha);
 double calculSimpson(int valeurCalculSimpson, int zero, double a, double (*fonctionLoiNormal)(void));
 double valeurAbsolue(double alphaCalcule);
