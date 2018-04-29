@@ -7,7 +7,7 @@
 
 void detectionDesAnomalies(void);
 int obtention(int * alphaControl, int * alphaWarning, double * moyenne, double * ecartType);
-int obtentionUtilisateur(int alphaControl, int alphaWarning);
+int obtentionUtilisateur(int * alphaControl, int * alphaWarning);
 double calculIntervalle(double * lowerLimit, double moyenne, double ecartType, int alpha, int n);
 FILE * lectureFichier();
 double sqrt(double valeur);
