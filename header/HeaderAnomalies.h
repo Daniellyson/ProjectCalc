@@ -4,6 +4,8 @@
 #include <stdlib.h>
 
 #define CALCULSIMPSON 75
+#define FIMODELE "fiModele.csv"
+#define FITEST "fiTest.csv"
 
 void detectionDesAnomalies(void);
 int obtention(int * alphaControl, int * alphaWarning, double * moyenne, double * ecartType);
