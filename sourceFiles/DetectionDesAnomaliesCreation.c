@@ -31,7 +31,76 @@ void detectionDesAnomalies(void) {
 }
 
 
-//DOING
 int obtention(int * alphaControl, int * alphaWarning, double * moyenne, double * ecartType) {
-	
+	FILE * fiModele;
+	double valeur;
+	int n;
+	int nbValeur = 0;
+	double sommeX = 0;
+	double sommeXCarre = 0;
+	double variance;
+
+	n = obtentionUtilisateur(alphaControl, alphaWarning);
+
+	fiModele = lectureFichier();
+
+	while (!feof(fiModele)) {
+		fscanf_s(fiModele, "%lf", &valeur);
+
+		sommeX += valeur;
+
+		sommeXCarre += valeur * valeur;
+
+		nbValeur++;
+
+		//fiModele = lectureFichier();
+	}
+
+	*moyenne = sommeX / nbValeur;
+
+	variance = (sommeXCarre / nbValeur) - (*moyenne) * (*moyenne); 
+
+	*ecartType = sqrt(variance);
+
+	fclose(fiModele);
+
+	return n;
+}
+
+int obtentionUtilisateur(int * alphaControl, int * alphaWarning) {
+
+	int n;
+
+	prinft("Tapez la valeur pour n :");
+	scanf_s("%d", &n);
+
+	prinft("Tapez la valeur pour alphaControl :");
+	scanf_s("%lf", *alphaControl);
+
+	prinft("Tapez la valeur pour alphaWarning :");
+	scanf_s("%lf", *alphaWarning);
+
+	return n;
+}
+
+FILE * lectureFichier() {
+	FILE * pFicher; 
+
+	fopen_s(&pFicher, FIMODELE, "r");
+
+	return pFicher;
+}
+
+double fonctionLoiNormal(double x) {
+	double racineQuotient;
+	double xCarre;
+	double exponentiel;
+
+	racineQuotient = sqrt(2 * PI);
+
+	xCarre = x * x;
+
+	exponentiel = exp((-xCarre) / 2);
+
+	return (1 / racineQuotient) * exponentiel;
 }
