@@ -1,18 +1,18 @@
 ﻿#include "Header.h"
 
-int calculNombreIteration(int nbDecimales, int exponsant) {
+int calculNombreIteration(int nbDecimales) {
 	int nbIterations = 1;
 	int erreurRelativeMax;
 	double essai;
 
 	erreurRelativeMax = calculErreurRelativeMax(nbDecimales);
 
-	essai = ((exponsant / 2) * pow(0.5, (factorielle(factorielle(nbIterations + 1))))) / (factorielle(nbIterations + 1));
+	essai = ((exp(1)) * pow(0.5, (factorielle(factorielle(nbIterations + 1))))) / (factorielle(nbIterations + 1));
 
 	while (essai > erreurRelativeMax) {
 		nbIterations++;
 		nbIterations = factorielle(nbIterations);
-		essai = ((exponsant / 2) * pow(0.5, (factorielle(nbIterations + 1)))) / (factorielle(nbIterations + 1));
+		essai = ((exp(1)) * pow(0.5, (factorielle(nbIterations + 1)))) / (factorielle(nbIterations + 1));
 	}
 
 	return nbIterations;
@@ -51,7 +51,7 @@ int calcul(double arg, int nbIterations) {
 	return resultat;
 }
 
-bool multipleDe05(double exposant) {
+bool estMultipleDe05(double exposant) {
 	bool multipleDe05;
 
 	while (exposant > 0) {

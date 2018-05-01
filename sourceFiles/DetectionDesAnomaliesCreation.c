@@ -1,6 +1,7 @@
 #include "HeaderAnomalies.h"
+#include "Header.h"
 
-void detectionDesAnomalies(void) {
+void determineModeleAnomalies(void) {
 	int n;
 	int alphaControl; 
 	int alphaWarning;
@@ -27,7 +28,7 @@ void detectionDesAnomalies(void) {
 	printf("Lower warning limit : %.2lf \n", lowerWarningLimit);
 	printf("Upper warning limit : %.2lf \n", upperWarningLimit);
 
-	system("pause");
+	getchar();
 }
 
 
@@ -71,14 +72,14 @@ int obtentionUtilisateur(int * alphaControl, int * alphaWarning) {
 
 	int n;
 
-	prinft("Tapez la valeur pour n :");
+	printf("Tapez la valeur pour n :");
 	scanf_s("%d", &n);
 
-	prinft("Tapez la valeur pour alphaControl :");
-	scanf_s("%lf", *alphaControl);
+	printf("Tapez la valeur pour alphaControl :");
+	scanf_s("%d", alphaControl);
 
-	prinft("Tapez la valeur pour alphaWarning :");
-	scanf_s("%lf", *alphaWarning);
+	printf("Tapez la valeur pour alphaWarning :");
+	scanf_s("%d", alphaWarning);
 
 	return n;
 }
