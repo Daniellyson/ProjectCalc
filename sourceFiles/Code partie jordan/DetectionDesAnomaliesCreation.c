@@ -44,9 +44,10 @@ int obtention(int * alphaControl, int * alphaWarning, double * moyenne, double *
 	n = obtentionUtilisateur(alphaControl, alphaWarning);
 
 	fiModele = lectureFichier();
+	fscanf_s(fiModele, "%lf", &valeur);
 
 	while (!feof(fiModele)) {
-		fscanf_s(fiModele, "%lf", &valeur);
+	
 
 		sommeX += valeur;
 
@@ -54,7 +55,7 @@ int obtention(int * alphaControl, int * alphaWarning, double * moyenne, double *
 
 		nbValeur++;
 
-		//fiModele = lectureFichier();
+		fscanf_s(fiModele, "%lf", &valeur);
 	}
 
 	*moyenne = sommeX / nbValeur;

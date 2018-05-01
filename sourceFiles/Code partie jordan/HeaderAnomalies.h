@@ -13,7 +13,7 @@ double calculIntervalle(double * lowerLimit, double moyenne, double ecartType, i
 FILE * lectureFichier();
 double sqrt(double valeur);
 double ecartType(double variance);
-double rechercheA(double alpha);
+double rechercheA(double tauxAcceptation);
 double valeurAbsolue(double alphaCalcule);
 void detectionDesErreurs(void);
 double obtentionModele(double * UCL, double * LCL, double * UWL, double * LWL);
