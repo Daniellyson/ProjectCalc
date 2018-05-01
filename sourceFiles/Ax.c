@@ -2,36 +2,34 @@
 
 int calculNombreIteration(int nbDecimales) {
 	int nbIterations = 1;
-	int erreurRelativeMax;
+	double erreurRelativeMax;
 	double essai;
 
 	erreurRelativeMax = calculErreurRelativeMax(nbDecimales);
 
-	essai = ((exp(1)) * pow(0.5, (factorielle(factorielle(nbIterations + 1))))) / (factorielle(nbIterations + 1));
+	essai = ((exp(1)) * pow(0.5, (factorielle(nbIterations + 1)))) / (factorielle(nbIterations + 1));
 
 	while (essai > erreurRelativeMax) {
 		nbIterations++;
-		nbIterations = factorielle(nbIterations);
 		essai = ((exp(1)) * pow(0.5, (factorielle(nbIterations + 1)))) / (factorielle(nbIterations + 1));
 	}
 
 	return nbIterations;
 }
 
-int calculErreurRelativeMax(int nbDecimalesNecessaire) {
-	int erreurRelativeMax = 0.5;
+double calculErreurRelativeMax(int nbDecimalesNecessaire) {
+	double erreur = 0.5;
 	int nombre = 10;
-	int nbDeci;
 
 	while (nbDecimalesNecessaire > 0) {
 		nombre *= 10;
 		nbDecimalesNecessaire--;
 	}
 
-	return erreurRelativeMax *= (1 / nombre);
+	return erreur *= (1 / (double)nombre);
 }
 
-int calculNombreDecimalesNecessairePourChaqueTerme(int argMod, int nbDecimales) {
+double calculNombreDecimalesNecessairePourChaqueTerme(int argMod, int nbDecimales) {
 	int p;
 	p = ((nbDecimales + (argMod - 0.5) * 0.5 + (argMod / 5) + 0.31) + 1);
 
@@ -63,7 +61,7 @@ bool estMultipleDe05(double exposant) {
 	return multipleDe05;
 }
 
-int degreN(int arg, int degre) {
+double degreN(int arg, int degre) {
 	return pow(arg, degre) / (factorielle(degre));
 }
 
