@@ -1,0 +1,143 @@
+﻿┌─── * détection des anomalies (creation du modele) 
+│ o───────────o 
+│ │ obtention │ 
+│ o───────────o ↓ alphaControl, alphaWarning, n, moyenne, ecartType 
+│ o──────────────────o ↓ moyenne, ecartType, alphaControl, n 
+│ │ calculIntervalle │ 
+│ o──────────────────o ↓ lowerControlLimit, upperControlLimit 
+│ o──────────────────o ↓ moyenne, ecartType, alphaWarning, n 
+│ │ calculIntervalle │  
+│ o──────────────────o ↓ lowerWarningLimit, upperWarningLimit 
+│ sortir moyenne, ecartType, lowerControlLimit, upperControlLimit, lowerWarningLimit, upperWarningLimit 
+└────────── 
+ 
+ 
+
+
+
+┌─── * obtention
+│ o──────────────────────o
+│ │ obtentionUtilisateur │
+│ o──────────────────────o ↓ n, alphaControl, alphaWarning
+│ nbValeurs = 0
+│ sommeX = 0
+│ sommeXCarre = 0
+│ o────────────────o
+│ │ lectureFichier │
+│ o────────────────o ↓ valeur
+│╔══ do while (!finFichier)
+│║ sommeX += valeur
+│║ sommeXCarre += valeur*valeur
+│║ nbValeurs++
+│║ o────────────────o
+│║ │ lectureFichier │
+│║ o────────────────o ↓ valeur
+│╙──
+│ moyenne = sommeX/nbValeurs
+│ variance = (sommeXCarre/nbValeurs) - moyenne*moyenne
+│ o──────o ↓ variance
+│ │ sqrt │
+│ o──────o ↓ ecartType
+│ sortir alphaControl, alphaWarning, n, moyenne, ecartType
+└──────────
+ 
+ 
+
+
+
+
+
+
+┌─── * rechercheA
+│ aMax = 3.99
+│ aMin = 0.00
+│╔══ do
+│║ aMid = (aMax + aMid)/2
+│║ o───────────────o ↓ 75, 0, aMid, f
+│║ │ calculSimpson │
+│║ o───────────────o ↓ probabiliteTable
+│║ probabiliteTable += 0.5
+│║┌── if (probabiliteTable < tauxAcceptation)
+│║│ aMin = aMid
+│║├── else
+│║│ aMax = aMid
+│║└──
+│║ o───────────────o ↓ tauxAcceptation-probabiliteTable
+│║ │ fabs		 │
+│║ o───────────────o ↓ diffTauxAcceptationEtProbaTable
+│╙── while (diffTauxAcceptationEtProbaTable > 0.000005)
+│ sortir aMid
+└──────────
+ 
+ 
+┌─── * calculIntervalle
+│ o────────────o ↓ 1-alpha/200
+│ │ rechercheA │
+│ o────────────o ↓ a
+│ o──────o ↓ n
+│ │ sqrt │
+│ o──────o ↓ racineN
+│ demiLongueurInterval = a * (ecartType/racineN)
+│ intervalLower = moyenne - demiLongueurInterval
+│ intervalUpper = moyenne + demiLongueurInterval
+│ sortir intervalLower, intervalUpper
+└──────────
+ 
+ 
+
+
+
+
+
+┌─── * fonctionLoiNormal 
+│ o──────o ↓ 2*3.14 
+│ │ sqrt │ 
+│ o──────o ↓ racineQuotient 
+│ xcarre = x * x 
+│ o─────o ↓ -xCarre/2 
+│ │ exp │ 
+│ o─────o ↓ exponentiel 
+│ sortir (1/racineQuotient) * exponentiel 
+└────────── 
+ 
+ 
+┌─── * detection des erreurs (utilisation du modele)
+│ numeroEchantillon = 0
+│ i = 0
+│ sommeValeurs = 0
+│ o──────────────────────o
+│ │ obtentionUtilisateur │
+│ o──────────────────────o ↓ UCL, LCL, UWL, LWL, n
+│ o────────────────o
+│ │ lectureFichier │
+│ o────────────────o ↓ valeur
+│╔══ do while(!finFichier)
+│║ i++
+│║ sommeValeurs += valeur
+│║┌── if (i == n)
+│║│ numeroEchantillon++
+│║│ o─────────────────o ↓ sommeValeurs/n
+│║│ │ controleMoyenne │
+│║│ o─────────────────o ↓ messageControleMoyenne
+│║│ afficher numeroEchantillon + messageControleMoyenne
+│║│ i = 0
+│║└──
+│║ o────────────────o
+│║ │ lectureFichier │
+│║ o────────────────o ↓ valeur
+│╙──
+└──────────
+
+ 
+ 
+
+┌─── * controleMoyenne 
+│┌── if (LWL < moyenne AND moyenne < UWL) 
+││ message = "moyenne dans les limites" 
+│├── else if (moyenne < LCL OR moyenne > UCL) 
+││ message = "alerte contrôle" 
+│├── else 
+││ message = "alerte warning" 
+│└── 
+│ sortir message 
+└────────── 

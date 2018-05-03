@@ -1,20 +1,22 @@
-#include"header.h"
+#include"HeaderAx.h"
 
-void calculExpBaseA() {
-	double base, exposant, resultat, argMod, nombreDeFois05, reste, arg, resultatPartiel, resultatDuReste;
+void calculeExpBaseA() {
+	double base, exposant, resultat, argMod, reste, arg, resultatPartiel, resultatDuReste;
 	int nbDecimales, nbIterations, nbDecimalNecessaires, nombreDeFois05, i;
-	bool negatif, multipleDe50;
+	bool negatif = false, multipleDe05;
 
-	printf("base :");
-	scanf("%f", &base);
-	printf("exposant :");
-	scanf("%f", &exposant);
-	printf("nombre de décimales");
-	scanf("%d", &nbDecimales);
+	system("cls");
+	printf("Base :");
+	scanf_s("%lf", &base);
+	printf("Exposant :");
+	scanf_s("%lf", &exposant);
+	printf("Nombre de decimales :");
+	scanf_s("%d", &nbDecimales);
+	system("cls");
 
 	exposant *= log(base);
 
-	if (exposant = 0) {
+	if (exposant == 0) {
 		resultat = 1;
 	}
 	else {
@@ -27,8 +29,8 @@ void calculExpBaseA() {
 			resultat = calcul(exposant, nbIterations);
 		}
 		else {
-			multipleDe50 = estMultipleDe05(exposant);
-			if (multipleDe50) {
+			multipleDe05 = estMultipleDe05(exposant);
+			if (multipleDe05) {
 				argMod = exposant;
 			}
 			else {
@@ -56,8 +58,9 @@ void calculExpBaseA() {
 			resultat = 1 / resultat;
 		}
 	}
-	printf("Résultat : %f", resultat);
-	getchar();
+	printf("Resultat : %.10lf\n", resultat);
+	system("pause");
+	system("cls");
 }
 
 int calculNombreIteration(int nbDecimales) {
@@ -67,11 +70,11 @@ int calculNombreIteration(int nbDecimales) {
 
 	erreurRelativeMax = calculErreurRelativeMax(nbDecimales);
 
-	essai = ((exp(1)) * pow(0.5, (factorielle(nbIterations + 1)))) / (factorielle(nbIterations + 1));
+	essai = ((exp(1)) * pow(0.5, (nbIterations + 1))) / (factorielle(nbIterations + 1));
 
 	while (essai > erreurRelativeMax) {
 		nbIterations++;
-		essai = ((exp(1)) * pow(0.5, (factorielle(nbIterations + 1)))) / (factorielle(nbIterations + 1));
+		essai = ((exp(1)) * pow(0.5, (nbIterations + 1))) / (factorielle(nbIterations + 1));
 	}
 
 	return nbIterations;
@@ -89,20 +92,20 @@ double calculErreurRelativeMax(int nbDecimalesNecessaire) {
 	return erreur *= (1 / (double)nombre);
 }
 
-int calculNombreDecimalesNecessairePourChaqueTerme(int argMod, int nbDecimales) {
+int calculNombreDecimalesNecessairePourChaqueTerme(double argMod, int nbDecimales) {
 	int p;
-	p = ((nbDecimales + (argMod - 0.5) * 0.5 + (argMod / 5) + 0.31) + 1);
+	p = ((int)(nbDecimales + (argMod - 0.5) * 0.5 + (argMod / 5) + 0.31) + 1);
 
 	return p;
 }
 
-int calcul(double arg, int nbIterations) {
-	int resultat = 1;
+double calcul(double arg, int nbIterations) {
+	double resultat = 1;
 	int degre = 1;
-	int resultatDegreI;
+	double resultatDegreI;
 
 	while (degre <= nbIterations) {
-		resultatDegreI = DegreN(arg, degre);
+		resultatDegreI = degreN(arg, degre);
 		resultat += resultatDegreI;
 		degre++;
 	}
@@ -121,7 +124,7 @@ bool estMultipleDe05(double exposant) {
 	return multipleDe05;
 }
 
-double degreN(int arg, int degre) {
+double degreN(double arg, int degre) {
 	return pow(arg, degre) / (factorielle(degre));
 }
 

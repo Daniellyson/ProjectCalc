@@ -43,3 +43,11 @@ void menu(void) {
 	printf_s("5. Detecter des anomalies\n");
 	printf_s("6. Quitter\n");
 }
+
+void viderBuffer() {
+	int c;
+
+	do {
+		c = getchar();
+	} while (c != '\n' && c != EOF);
+}

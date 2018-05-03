@@ -1,0 +1,76 @@
+﻿ ┌─── * Sharmir
+ │ Obtenir nbPoints
+ │
+ │ i = 0
+ │╔══ do while (i < nbPoints)
+ │║ Obtenir x
+ │║ Obtenir y
+ │║ coordonneesPoints[i].X = x
+ │║ coordonneesPoints[i].Y = y
+ │║ i++
+ │╙──
+ │ iX = 0
+ │ o────────────────────o ↓ nbPoints, coordonneesPoints, iX
+ │ │ Fonction Polynomes │
+ │ o────────────────────o ↓ clefSecrete
+ │ 
+ │ Sortir clefSecrete
+ └──────────
+ 
+ ┌─── * FonctionPolynomes
+ │ y = 0;
+ │ i = 0
+ │╔══ do while (i < nbPoints)
+ │║ numerateur = 1
+ │║ denominateur = 1
+ │║ j = 0
+ │║╔══ do while (j < nbPoints)
+ │║║
+ │║║┌── if (i ≠ j)
+ │║║│ numerateur *= (iX - coordonnees[j].pointX)
+ │║║│ denominateur *= (coordonnees[i].pointX - coordonnees[j].pointX)
+ │║║└──
+ │║║ j++
+ │║╙──
+ │║┌── if (denominateur ≠ 0)
+ │║│ y += (numerateur / denominateur) * coordonnees[i].pointY
+ │║├──
+ │║ i++
+ │╙──
+ │ retour y
+ └──────────
+ 
+ ┌─── * Max Polynome
+ │ i = 0
+ │╔══ do while (i < 5)
+ │║ Obtenir x, y
+ │║ coordonneesPuissanceOxygene[i].pointX = x
+ │║ coordonneesPuissanceOxygene[i].pointY = y
+ │║ i++
+ │╙──
+ │ o────────────────────o ↓ coordonneesPuissanceOxygene
+ │ │ Gestion Max Points │
+ │ o────────────────────o ↓ xMax, yMax
+ │ Sortir xMax, yMax
+ └──────────
+
+
+
+ 
+ ┌─── * Gestion Max Points
+ │ nbPoints = 5
+ │ yMax = 0
+ │ iX = coordonneesPuissanceOxygene[0].pointX
+ │ iFin = coordonneesPuissanceOxygene[4].pointX
+ │╔══ do while (iX ≤ iFin)
+ │║ o────────────────────o ↓ nbPoints, coordonneesPuissanceOxygene, iX
+ │║ │ Fonction Polynomes │
+ │║ o────────────────────o ↓ y
+ │║┌── if (y ≥ yMax)
+ │║│ yMax = y
+ │║│ xMax = iX
+ │║└──
+ │║ iX += 0.01
+ │╙──
+ │ retour xMax, yMax
+ └──────────

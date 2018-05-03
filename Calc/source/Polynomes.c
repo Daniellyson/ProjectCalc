@@ -1,25 +1,33 @@
 #include"HeaderPolynomes.h"
 
-void decrypterCleShamir() {
+void decrypteCleShamir() {
 	double x, y, clefSecrete;
 	int i, nbPoints;
 	CoordonneesPoints coordonneesPoints[NB_POINTS];
-
+	
+	system("cls");
+	printf("nombre de points :");
 	scanf_s("%d", &nbPoints);
 	i = 0;
 	while (i < nbPoints) {
-		scanf_s("%f", &x);
-		scanf_s("%f", &y);
+		printf("%d x :", i+1);
+		scanf_s("%lf", &x);
+		printf("%d y :", i + 1);
+		scanf_s("%lf", &y);
 		coordonneesPoints[i].pointX = x;
 		coordonneesPoints[i].pointY = y;
 		i++;
 	}
-	y = fonctionPolynomes(nbPoints, coordonneesPoints, 0);
+	y = fonctionPolynomes(nbPoints, coordonneesPoints, 0.0);
 	clefSecrete = y;
-	printf("cle secrete : %f", clefSecrete);
+	system("cls");
+	printf("cle secrete : %f\n", clefSecrete);
+	viderBuffer();
+	system("pause");
+	system("cls");
 }
 
-double fonctionPolynomes(int nbPoints, CoordonneesPoints coordonnees[], int iX) {
+double fonctionPolynomes(int nbPoints, CoordonneesPoints coordonnees[], double iX) {
 	double y, numerateur, denominateur;
 	int i, j;
 
@@ -44,18 +52,18 @@ double fonctionPolynomes(int nbPoints, CoordonneesPoints coordonnees[], int iX) 
 	return y;
 }
 
-void maxPolynome() {
-	double x, y;
+void calculeMaxPuissance() {
+	double x, y, xMax, yMax;
 	int i = 0;
-
+	
 	CoordonneesPoints coordonneesPuissanceOxygene[5];
 
+	system("cls");
 	while (i < 5) {
 		printf("Entrez le x : ");
 		scanf_s("%lf", &x);
 		printf("Entrez le y : ");
 		scanf_s("%lf", &y);
-		system("cls");
 
 		coordonneesPuissanceOxygene[i].pointX = x;
 		coordonneesPuissanceOxygene[i].pointY = y;
@@ -63,13 +71,12 @@ void maxPolynome() {
 		i++;
 	}
 
-	double xMax, yMax;
-
 	xMax = gestionMaxPoints(&yMax, coordonneesPuissanceOxygene);
 
-	printf("xMax : %lf\nyMax : %lf", xMax, yMax);
+	printf("xMax : %lf\nyMax : %lf\n", xMax, yMax);
 
 	system("pause");
+	system("cls");
 }
 
 double gestionMaxPoints(double* pYMax, CoordonneesPoints coordonneesPuissanceOxygene[]) {
